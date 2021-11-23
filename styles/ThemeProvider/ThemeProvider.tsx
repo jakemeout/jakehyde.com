@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from "react";
+import { DefaultTheme } from "styled-components";
 import themes from "../theme";
 
 export enum Theme {
@@ -7,7 +8,7 @@ export enum Theme {
 }
 
 export type ThemeContextType = {
-  theme: Theme;
+  theme: DefaultTheme;
   toggleTheme: (Theme: Theme) => void;
 };
 
@@ -23,7 +24,7 @@ type ThemeProviderProps = {
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   children,
 }) => {
-  const [theme, setTheme] = useState(Theme.Dark);
+  const [theme, setTheme] = useState<Theme>(Theme.Dark);
   const toggleTheme = (currTheme: Theme) =>
     currTheme === Theme.Dark ? setTheme(Theme.Light) : setTheme(Theme.Dark);
   return (
