@@ -1,12 +1,12 @@
-import { createContext, useState } from "react";
-import { darkTheme, lightTheme } from "../styles";
+import { createContext, useState, useContext } from "react";
+import themes from "../theme";
 
-enum Theme {
-  Dark = "dark",
-  Light = "light",
+export enum Theme {
+  Dark = "darkTheme",
+  Light = "lightTheme",
 }
 
-type ThemeContextType = {
+export type ThemeContextType = {
   theme: Theme;
   toggleTheme: (Theme: Theme) => void;
 };
@@ -27,8 +27,9 @@ export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   const toggleTheme = (currTheme: Theme) =>
     currTheme === Theme.Dark ? setTheme(Theme.Light) : setTheme(Theme.Dark);
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: themes[theme], toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+export const useTheme = () => useContext(ThemeContext);
