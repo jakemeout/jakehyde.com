@@ -14,8 +14,8 @@ class CustomDocument extends Document {
   //   }
   render(): JSX.Element {
     return (
-      <Html>
-        <Head />
+      <Html lang="en">
+        <Head></Head>
         <body>
           <Main />
           <NextScript />
