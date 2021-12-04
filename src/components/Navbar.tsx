@@ -17,6 +17,8 @@ const NavContainer = styled.div(
     color: ${theme.text.primary};
     height: 75px;
     width: 100%;
+    display: flex;
+    
   `
 );
 

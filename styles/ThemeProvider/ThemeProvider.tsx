@@ -9,7 +9,7 @@ export enum Theme {
 
 export type ThemeContextType = {
   theme: DefaultTheme;
-  toggleTheme: (Theme: Theme) => void;
+  toggleTheme: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
@@ -24,13 +24,19 @@ type ThemeProviderProps = {
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   children,
 }) => {
-  const [theme, setTheme] = useState<Theme>(Theme.Dark);
-  const toggleTheme = (currTheme: Theme) =>
-    currTheme === Theme.Dark ? setTheme(Theme.Light) : setTheme(Theme.Dark);
+  const [currTheme, setCurrTheme] = useState<Theme>(Theme.Dark);
+
+  const toggleTheme = () => {
+    currTheme === Theme.Dark
+      ? setCurrTheme(Theme.Light)
+      : setCurrTheme(Theme.Dark);
+  };
+
   return (
-    <ThemeContext.Provider value={{ theme: themes[theme], toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: themes[currTheme], toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+
 export const useTheme = () => useContext(ThemeContext);

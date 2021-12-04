@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import styled, { StyledComponent } from "styled-components";
-import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
+import React, { MouseEvent } from "react";
+import styled from "styled-components";
+import { useTheme, Theme } from "../../styles/ThemeProvider/ThemeProvider";
 
-type SwitchProp = {
-    toggleSwitch: boolean;
-  };
+type ClickProps = {
+  onClick: () => void;
+};
 
 const Switch: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const [toggleSwitch, setToggleSwitch] = useState<boolean>(false);
-
-  const handleSwitch = () => {
-    setToggleSwitch(!toggleSwitch);
-  };
-
-  
 
   return (
     <div>
@@ -24,11 +17,7 @@ const Switch: React.FC = () => {
         type="checkbox"
       />
       <SwitchLabel className="react-switch-label" htmlFor={`react-switch-new`}>
-        <SwitchButton
-          toggleSwitch={toggleSwitch}
-          className={`react-switch-button`}
-          onClick={handleSwitch}
-        />
+        <SwitchButton className={`react-switch-button`} onClick={toggleTheme} />
       </SwitchLabel>
     </div>
   );
@@ -38,6 +27,10 @@ const CheckBox = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  :checked + .react-switch-label .react-switch-button {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
 `;
 
 const SwitchLabel = styled.label`
@@ -53,9 +46,7 @@ const SwitchLabel = styled.label`
   transition: background-color 0.2s;
 `;
 
-const SwitchButton = styled.span(
-  (toggleSwitch: SwitchProp) => `
-  ${console.log(toggleSwitch)}
+const SwitchButton = styled.span<ClickProps>`
   content: "";
   position: absolute;
   top: 2px;
@@ -66,9 +57,6 @@ const SwitchButton = styled.span(
   transition: 0.2s;
   background: #fff;
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
-  ${!toggleSwitch ? 'left: calc(100% - 2px);' : 'right: calc(100% - 2px);'}
-  ${!toggleSwitch ? 'transform: translateX(-100%);' : null}
-`
-);
+`;
 
 export default Switch;
