@@ -14,7 +14,7 @@ const Switch: React.FC = () => {
       <CheckBox
         className="react-switch-checkbox"
         id={`react-switch-new`}
-        type="checkbox"
+        type="checkbox"   
       />
       <SwitchLabel className="react-switch-label" htmlFor={`react-switch-new`}>
         <SwitchButton className={`react-switch-button`} onClick={toggleTheme} />
