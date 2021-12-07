@@ -2,18 +2,19 @@ import { createContext, useState, useContext } from "react";
 import { DefaultTheme } from "styled-components";
 import themes from "../theme";
 
-export enum Theme {
-  Dark = "darkTheme",
-  Light = "lightTheme",
+interface MainDefaultTheme extends DefaultTheme {
+  toggleMode: {
+    emoji: string;
+  };
 }
 
 export type ThemeContextType = {
-  theme: DefaultTheme;
+  theme: MainDefaultTheme;
   toggleTheme: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: Theme.Dark,
+  theme: themes.darkTheme,
   toggleTheme: () => null,
 });
 
@@ -24,16 +25,18 @@ type ThemeProviderProps = {
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   children,
 }) => {
-  const [currTheme, setCurrTheme] = useState<Theme>(Theme.Dark);
+  const [currTheme, setCurrTheme] = useState<MainDefaultTheme>(
+    themes.darkTheme
+  );
 
   const toggleTheme = () => {
-    currTheme === Theme.Dark
-      ? setCurrTheme(Theme.Light)
-      : setCurrTheme(Theme.Dark);
+    currTheme === themes.darkTheme
+      ? setCurrTheme(themes.lightTheme)
+      : setCurrTheme(themes.darkTheme);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme: themes[currTheme], toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: currTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
