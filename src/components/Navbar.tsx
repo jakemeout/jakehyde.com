@@ -29,7 +29,7 @@ const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: end;
-  padding: 0px 25px 0px 25px;
+  padding: 0px 50px 0px 50px;
 `;
 
 const TopLine = styled.hr(

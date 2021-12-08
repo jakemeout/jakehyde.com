@@ -8,7 +8,7 @@ type ClickProps = {
 
 const Switch: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  console.log(theme);
+
   return (
     <SwitchContainer>
       <CheckBox
@@ -16,14 +16,15 @@ const Switch: React.FC = () => {
         id={`react-switch-new`}
         type="checkbox"
       />
+
       <SwitchLabel
         onClick={toggleTheme}
         className="react-switch-label"
         htmlFor={`react-switch-new`}
       >
-        <SwitchButton className={`react-switch-button`}>
-          <span>{theme.toggleMode.emoji}</span>
-        </SwitchButton>
+        <Emoji>{"\u{1F31E}"}</Emoji>
+        <Emoji>{"\u{1F31A}"}</Emoji>
+        <SwitchButton className={`react-switch-button`} />
       </SwitchLabel>
     </SwitchContainer>
   );
@@ -33,7 +34,6 @@ const SwitchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-self: flex-end;
 `;
 
 const CheckBox = styled.input`
@@ -51,12 +51,21 @@ const SwitchLabel = styled.label<ClickProps>`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 55px;
-  height: 30px;
+  width: 65px;
+  height: 35px;
   background: grey;
   border-radius: 100px;
   position: relative;
   transition: background-color 0.2s;
+  padding: 0px 3px 0px 3px;
+`;
+
+const Emoji = styled.span`
+  font-size: 25px;
+  margin: 0px !important;
+  display: inline !important;
+  padding: 1px 0px 0px 1px;
+  height: auto;
 `;
 
 const SwitchButton = styled.span`
@@ -64,9 +73,9 @@ const SwitchButton = styled.span`
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 25px;
-  height: 25px;
-  border-radius: 25px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
   transition: 0.2s;
   background: #fff;
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);

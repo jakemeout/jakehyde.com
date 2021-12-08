@@ -3,6 +3,7 @@ import { useTheme } from "../styles/ThemeProvider/ThemeProvider";
 import styled from "styled-components";
 import Heading from "../src/components/Heading";
 import Navbar from "../src/components/Navbar";
+import Description from "../src/components/Description";
 // import styled from "styled-components";
 
 const Home: NextPage = () => {
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
     <GlobalStyle theme={theme}>
       <Navbar />
       <Heading>Hi I'm Jake</Heading>
+      <Description>testsdfsdf</Description>
     </GlobalStyle>
   );
 };

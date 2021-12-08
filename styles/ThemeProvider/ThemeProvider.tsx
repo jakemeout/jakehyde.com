@@ -3,9 +3,7 @@ import { DefaultTheme } from "styled-components";
 import themes from "../theme";
 
 interface MainDefaultTheme extends DefaultTheme {
-  toggleMode: {
-    emoji: string;
-  };
+  label: string;
 }
 
 export type ThemeContextType = {

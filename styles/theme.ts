@@ -1,7 +1,5 @@
 const dark = {
-  toggleMode: {
-    emoji: "\u{1F31E}"
-  },
+  label: "dark",
   bg: {
     primary: "#20272d",
   },
@@ -14,9 +12,7 @@ const dark = {
 };
 
 const light = {
-  toggleMode: {
-    emoji: "\u{1F31A}"
-  },
+  label: "light",
   bg: {
     primary: "#f1f0eb",
   },

@@ -11,9 +11,10 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
   return <HeaderText theme={theme}>{children}</HeaderText>;
 };
 
-const HeaderText = styled.h1(
+const HeaderText = styled.h2(
   ({ theme }) => `
   color: ${theme.text.primary};
+  padding: 0% 20%; 
 `
 );
 
