@@ -17,12 +17,6 @@ const Navbar: React.FC = () => {
 
 const NavContainer = styled.div(
   ({ theme }) => `
-    color: ${theme.text.primary};
-    height: 75px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   `
 );
 const LinkContainer = styled.div`
@@ -36,6 +30,9 @@ const TopLine = styled.hr(
   ({ theme }) => `
    background-color: ${theme.hr.primary};
    height: 7px;
+   width: 100%;
+   padding:0;
+   margin:0;
 `
 );
 

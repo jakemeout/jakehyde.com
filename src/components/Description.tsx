@@ -17,6 +17,7 @@ const DescriptionText = styled.p(
   ({ theme }) => `
   color: ${theme.text.primary};
   padding: 5% 20%; 
+  font-size: 10;
 `
 );
 

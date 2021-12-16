@@ -12,8 +12,10 @@ const Home: NextPage = () => {
   return (
     <GlobalStyle theme={theme}>
       <Navbar />
-      <Heading>Hi I'm Jake</Heading>
-      <Description>testsdfsdf</Description>
+      <Heading>
+        Hi I'm Jake
+        <Description>testsdfsdf</Description>
+      </Heading>
     </GlobalStyle>
   );
 };
@@ -22,6 +24,8 @@ const GlobalStyle = styled.div(
   ({ theme }) => `
   background: ${theme.bg.primary};
   color: ${theme.text.primary};
+  min-height: 100vh;
+  height: 100%;
 `
 );
 export default Home;
