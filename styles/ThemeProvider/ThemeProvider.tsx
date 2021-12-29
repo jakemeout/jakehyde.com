@@ -28,6 +28,7 @@ export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   );
 
   const toggleTheme = () => {
+    
     currTheme === themes.darkTheme
       ? setCurrTheme(themes.lightTheme)
       : setCurrTheme(themes.darkTheme);

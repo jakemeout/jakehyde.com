@@ -4,6 +4,7 @@ import styled from "styled-components";
 import "../styles/global.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  
   return (
     <ThemeProvider>
       <Component {...pageProps} />

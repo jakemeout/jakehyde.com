@@ -6,6 +6,7 @@ import Navbar from "../src/components/Navbar";
 import Description from "../src/components/Description";
 // import styled from "styled-components";
 
+
 const Home: NextPage = () => {
   const { theme } = useTheme();
 
@@ -13,7 +14,6 @@ const Home: NextPage = () => {
     <GlobalStyle theme={theme}>
       <Navbar />
       <Heading>
-        Hi I'm Jake
         <Description>testsdfsdf</Description>
       </Heading>
     </GlobalStyle>

@@ -13,14 +13,14 @@ const Switch: React.FC = () => {
     <SwitchContainer>
       <CheckBox
         className="react-switch-checkbox"
-        id={`react-switch-new`}
+        id={"react-switch-new"}
         type="checkbox"
       />
 
       <SwitchLabel
         onClick={toggleTheme}
         className="react-switch-label"
-        htmlFor={`react-switch-new`}
+        htmlFor={"react-switch-new"}
       >
         <Emoji>{"\u{1F31E}"}</Emoji>
         <Emoji>{"\u{1F31A}"}</Emoji>
@@ -77,7 +77,7 @@ const SwitchButton = styled.span`
   height: 30px;
   border-radius: 30px;
   transition: 0.2s;
-  background: #fff;
+  background: #f1f0ea;
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 `;
 
