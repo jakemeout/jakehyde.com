@@ -6,16 +6,14 @@ import Navbar from "../src/components/Navbar";
 import Description from "../src/components/Description";
 // import styled from "styled-components";
 
-
 const Home: NextPage = () => {
   const { theme } = useTheme();
 
   return (
     <GlobalStyle theme={theme}>
       <Navbar />
-      <Heading>
-        <Description>testsdfsdf</Description>
-      </Heading>
+      <Heading children={undefined}></Heading>
+      <Description>I build Web Applications in NY. </Description>
     </GlobalStyle>
   );
 };

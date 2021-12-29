@@ -7,7 +7,7 @@ type ClickProps = {
 };
 
 const Switch: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
     <SwitchContainer>
@@ -51,21 +51,18 @@ const SwitchLabel = styled.label<ClickProps>`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 65px;
-  height: 35px;
+  width: 50px;
+  height: 25px;
   background: grey;
   border-radius: 100px;
   position: relative;
   transition: background-color 0.2s;
-  padding: 0px 3px 0px 3px;
+  padding: 0px 2px 0px 2px;
 `;
 
-const Emoji = styled.span`
-  font-size: 25px;
-  margin: 0px !important;
-  display: inline !important;
-  padding: 1px 0px 0px 1px;
-  height: auto;
+const Emoji = styled.div`
+  font-size: 20px;
+  padding-top: 1px;
 `;
 
 const SwitchButton = styled.span`
@@ -73,9 +70,9 @@ const SwitchButton = styled.span`
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
   transition: 0.2s;
   background: #f1f0ea;
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);

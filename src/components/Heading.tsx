@@ -13,9 +13,15 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
   const typed: any = useRef(null);
 
   useEffect(() => {
-
     const options = {
-      strings: ["Hi I'm Jake", "I'm a Developer", "Take a look at my GitHub", "Or my resume", "Or my projects"],
+      strings: [
+        "Hi I'm Jake",
+        "I'm a Developer",
+        "Take a look at my GitHub",
+        "Or connect with me on Linkedin",
+        "Or checkout my resume",
+        "Or checkout my projects",
+      ],
       typeSpeed: 50,
       backSpeed: 50,
       loop: true,
@@ -41,6 +47,8 @@ const HeaderText = styled.h2(
   ({ theme }) => `
   color: ${theme.text.primary};
   padding: 0% 20%; 
+  font-weight: 300;
+  margin-top: 20px;
 `
 );
 
