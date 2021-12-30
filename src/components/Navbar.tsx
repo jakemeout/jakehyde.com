@@ -94,6 +94,11 @@ const NavContainer = styled.div(
   justify-content: space-between;
   border-top: 6px solid ${theme.hr.primary};
   padding: 0px 90px 0px 90px;
+  @media screen and (max-width: 600px) {
+    justify-content: center;
+  margin:0;
+  padding:0;
+}
   `
 );
 
