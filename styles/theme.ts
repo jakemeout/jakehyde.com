@@ -9,6 +9,9 @@ const dark = {
   text: {
     primary: "#f1f0eb",
   },
+  link: {
+    primary: "#f1f0eb",
+  },
 };
 
 const light = {
@@ -20,6 +23,9 @@ const light = {
     primary: "#20272d",
   },
   text: {
+    primary: "#20272d",
+  },
+  link: {
     primary: "#20272d",
   },
 };

@@ -24,6 +24,9 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
       ],
       typeSpeed: 50,
       backSpeed: 50,
+      fadeOut: true,
+      fadeOutClass: 'typed-fade-out',
+      fadeOutDelay: 500,
       loop: true,
     };
     typed.current = new Typed(el.current, options);
@@ -46,9 +49,8 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
 const HeaderText = styled.h2(
   ({ theme }) => `
   color: ${theme.text.primary};
-  padding: 0% 20%; 
+  padding: 10% 0% 1% 20%;
   font-weight: 300;
-  margin-top: 20px;
 `
 );
 

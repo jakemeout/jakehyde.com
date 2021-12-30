@@ -16,7 +16,7 @@ const Description: React.FunctionComponent<DescriptionProps> = ({
 const DescriptionText = styled.p(
   ({ theme }) => `
   color: ${theme.text.primary};
-  padding: 5% 20%; 
+  padding: 1% 20%; 
   font-weight: 200;
   font-size: 16px;
 `

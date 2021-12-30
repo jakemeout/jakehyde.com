@@ -1,10 +1,8 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider, useTheme } from "../styles/ThemeProvider/ThemeProvider";
-import styled from "styled-components";
+import { ThemeProvider } from "../styles/ThemeProvider/ThemeProvider";
 import "../styles/global.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  
   return (
     <ThemeProvider>
       <Component {...pageProps} />

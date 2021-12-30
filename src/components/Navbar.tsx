@@ -7,15 +7,18 @@ const Navbar: React.FC = () => {
   const { theme } = useTheme();
   return (
     <NavContainer theme={theme}>
-      <LogoAnimation>
+      <LogoGlow>
         <Logo theme={theme} className="J">
           J
         </Logo>
         <Logo theme={theme} className="H">
           H
         </Logo>
-      </LogoAnimation>
+      </LogoGlow>
       <LinkContainer>
+        <ResumeLink href="https://jakemeout.github.io/resume/" theme={theme}>
+          Resumè
+        </ResumeLink>
         <Link
           href="https://twitter.com/jakeme0ut"
           target="_blank"
@@ -90,18 +93,21 @@ const NavContainer = styled.div(
   display:flex;
   justify-content: space-between;
   border-top: 6px solid ${theme.hr.primary};
+  padding: 0px 90px 0px 90px;
   `
 );
 
-const LogoAnimation = styled.div`
+const LogoGlow = styled.div`
   display: flex;
   padding: 15px 50px 15px 50px;
 `;
+
 const Link = styled.a`
   width: 25px;
   height: 25px;
   margin-right: 15px;
 `;
+
 const Logo = styled.h1(
   ({ theme }) => `
   color: ${theme.text.primary};
@@ -113,9 +119,23 @@ const Logo = styled.h1(
   box-shadow: none;
 `
 );
+
 const GitHubIcon = styled.img``;
 const LinkedInIcon = styled.img``;
 const TwitterIcon = styled.img``;
+
+const ResumeLink = styled.a(
+  ({ theme }) => `
+  color: ${theme.text.primary};
+  margin-right: 15px;
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: none;
+  :hover {
+    text-shadow: 0 0 6px ${theme.text.primary};
+  }
+  `
+);
 
 const LinkContainer = styled.div`
   display: flex;
