@@ -2,9 +2,11 @@ import { createContext, useState, useContext } from "react";
 import { DefaultTheme } from "styled-components";
 import themes from "../theme";
 
-interface MainDefaultTheme extends DefaultTheme {
+export interface MainDefaultTheme extends DefaultTheme {
+  bg: any;
   label: string;
 }
+
 
 export type ThemeContextType = {
   theme: MainDefaultTheme;
@@ -23,6 +25,7 @@ type ThemeProviderProps = {
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   children,
 }) => {
+
   const [currTheme, setCurrTheme] = useState<MainDefaultTheme>(
     themes.darkTheme
   );

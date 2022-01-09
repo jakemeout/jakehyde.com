@@ -96,8 +96,6 @@ const NavContainer = styled.div(
   padding: 0px 90px 0px 90px;
   @media screen and (max-width: 600px) {
     justify-content: center;
-    margin:0;
-    padding:0;
   }
   `
 );
@@ -147,6 +145,9 @@ const LinkContainer = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 15px 50px 15px 50px;
+  @media screen and (max-width: 600px) {
+    padding-left: 0px;
+  }
 `;
 
 export default Navbar;

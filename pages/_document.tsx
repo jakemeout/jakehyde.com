@@ -1,11 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
+
 class CustomDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
+
           <link rel="manifest" href="/manifest.json" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link

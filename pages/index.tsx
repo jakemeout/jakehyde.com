@@ -4,12 +4,14 @@ import styled from "styled-components";
 import Heading from "../src/components/Heading";
 import Navbar from "../src/components/Navbar";
 import Description from "../src/components/Description";
+import GlobalStyle from "../styles/GlobalStyles";
 
 const Home: NextPage = () => {
   const { theme } = useTheme();
 
   return (
-    <GlobalStyle theme={theme}>
+    <>
+      <GlobalStyle theme={theme}/>
       <Navbar />
       <Content>
         <ProfilePhoto theme={theme} src={`/JakeGreyBkBridge.png`} />
@@ -67,16 +69,9 @@ const Home: NextPage = () => {
           </Description>
         </DescriptionContainer>
       </Content>
-    </GlobalStyle>
+    </>
   );
 };
-
-const GlobalStyle = styled.div(
-  ({ theme }) => `
-  background: ${theme.bg.primary};
-  color: ${theme.text.primary};
-`
-);
 
 const DescriptionContainer = styled.div`
   display: flex;
