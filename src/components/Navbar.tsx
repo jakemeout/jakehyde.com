@@ -96,9 +96,9 @@ const NavContainer = styled.div(
   padding: 0px 90px 0px 90px;
   @media screen and (max-width: 600px) {
     justify-content: center;
-  margin:0;
-  padding:0;
-}
+    margin:0;
+    padding:0;
+  }
   `
 );
 

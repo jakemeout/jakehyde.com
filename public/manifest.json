@@ -1,0 +1,14 @@
+{
+    "name": "Jake Hyde",
+    "short_name": "JH",
+    "start_url": "/",
+    "display": "minimal-ui",
+    "background_color": "#f1f0eb",
+    "description": "Personal Website",
+    "dir": "auto",
+    "categories": "personalization",
+    "lang": "en",
+    "orientation": "any",
+    "scope": "/",
+    "theme_color": "#20272d"
+}

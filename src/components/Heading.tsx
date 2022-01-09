@@ -49,8 +49,10 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
 const HeaderText = styled.h2(
   ({ theme }) => `
   color: ${theme.text.primary};
-  padding: 10% 0% 1% 20%;
   font-weight: 300;
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
 `
 );
 

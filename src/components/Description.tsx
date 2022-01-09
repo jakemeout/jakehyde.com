@@ -16,9 +16,13 @@ const Description: React.FunctionComponent<DescriptionProps> = ({
 const DescriptionText = styled.p(
   ({ theme }) => `
   color: ${theme.text.primary};
-  padding: 1% 20%; 
   font-weight: 200;
   font-size: 16px;
+  margin-top: 2%;
+  @media screen and (max-width: 600px) {
+    margin-top: 2%;
+    font-size: 14px;
+  }
 `
 );
 
