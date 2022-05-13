@@ -5,13 +5,14 @@ import Heading from "../src/components/Heading";
 import Navbar from "../src/components/Navbar";
 import Description from "../src/components/Description";
 import GlobalStyle from "../styles/GlobalStyles";
+import Footer from "../src/components/Footer";
 
 const Home: NextPage = () => {
   const { theme } = useTheme();
 
   return (
     <>
-      <GlobalStyle theme={theme}/>
+      <GlobalStyle theme={theme} />
       <Navbar />
       <Content>
         <ProfilePhoto theme={theme} src={`/JakeGreyBkBridge.png`} />
@@ -69,6 +70,9 @@ const Home: NextPage = () => {
           </Description>
         </DescriptionContainer>
       </Content>
+      <FooterContainer>
+        <Footer>© COPYRIGHTS JAKE HYDE. ALL RIGHTS RESERVED.</Footer>
+      </FooterContainer>
     </>
   );
 };
@@ -110,4 +114,11 @@ const ProfilePhoto = styled.img(
   }
 `
 );
+
+const FooterContainer = styled.div`
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+`;
 export default Home;

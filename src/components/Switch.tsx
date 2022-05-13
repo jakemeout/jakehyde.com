@@ -57,7 +57,7 @@ const SwitchLabel = styled.label<ClickProps>`
   border-radius: 100px;
   position: relative;
   transition: background-color 0.2s;
-  padding: 0px 2px 0px 2px;
+  padding: 1px 4px 0px 2px;
 `;
 
 const Emoji = styled.div`
@@ -70,8 +70,8 @@ const SwitchButton = styled.span`
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 20px;
   transition: 0.2s;
   background: #f1f0ea;
