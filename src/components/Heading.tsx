@@ -25,7 +25,7 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
       typeSpeed: 50,
       backSpeed: 50,
       fadeOut: true,
-      fadeOutClass: 'typed-fade-out',
+      fadeOutClass: "typed-fade-out",
       fadeOutDelay: 500,
       loop: true,
     };

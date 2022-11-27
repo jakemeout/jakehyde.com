@@ -4,10 +4,10 @@ import styled from "styled-components";
 
 /**
  * TODO
- *  - Add Blog route
- *  - Add Blog page? or component for the pagE?
- *  - Create a blog post option?
- *  - May need a db to store all the blogs :) setup postgres and graphql maybe?
+ *  Add Blog route 
+ *  Add Blog page? or component for the pagE?
+ *  Create a blog post option?
+ *  May need a db to store all the blogs :) setup postgres and graphql maybe?
  *
  */
 

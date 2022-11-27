@@ -16,9 +16,12 @@ const Navbar: React.FC = () => {
         </Logo>
       </LogoGlow>
       <LinkContainer>
-        <ResumeLink href="https://jakemeout.github.io/resume/" theme={theme}>
+        <LinkGlow href="https://jakemeout.github.io/resume/" theme={theme}>
           Resumè
-        </ResumeLink>
+        </LinkGlow>
+        <LinkGlow href="/Blog" theme={theme}>
+          Blog
+        </LinkGlow>
         <Link
           href="https://twitter.com/jakeme0ut"
           target="_blank"
@@ -127,7 +130,7 @@ const GitHubIcon = styled.img``;
 const LinkedInIcon = styled.img``;
 const TwitterIcon = styled.img``;
 
-const ResumeLink = styled.a(
+const LinkGlow = styled.a(
   ({ theme }) => `
   color: ${theme.text.primary};
   margin-right: 15px;

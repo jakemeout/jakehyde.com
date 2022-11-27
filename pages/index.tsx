@@ -19,8 +19,19 @@ const Home: NextPage = () => {
         <DescriptionContainer>
           <Heading children={undefined}></Heading>
           <Description>
-            I build Web Applications and live in NY. I have worked in IT for
-            many years with various roles at companies such as&nbsp;
+            I am a fullstack Associate Software Engineer at&nbsp;
+            <Link
+              theme={theme}
+              href="https://amplify.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Amplify
+            </Link>
+            &nbsp;and I live in NY. I've worked in Information Technology for
+            many years in a variety of roles such as Help Desk Technician,
+            Project Coordinator, Program manager, and now Software Engineer.
+            I've worked for companies such as&nbsp;
             <Link
               theme={theme}
               href="https://www.apple.com"
@@ -45,7 +56,7 @@ const Home: NextPage = () => {
               target="_blank"
               rel="noopener"
             >
-              Facebook
+              Meta (formerly Facebook)
             </Link>
             , and&nbsp;
             <Link
@@ -54,19 +65,8 @@ const Home: NextPage = () => {
               target="_blank"
               rel="noopener"
             >
-              Uber
+              Uber.
             </Link>
-            . I've been a Help Desk Technician, a Project Coordinator, Program
-            manager, and now Software Engineer. I am currently at&nbsp;
-            <Link
-              theme={theme}
-              href="https://amplify.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              Amplify
-            </Link>
-            &nbsp;as a Software Engineer.
           </Description>
         </DescriptionContainer>
       </Content>
