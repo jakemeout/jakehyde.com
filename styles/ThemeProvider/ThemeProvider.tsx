@@ -6,19 +6,14 @@ export interface MainDefaultTheme extends DefaultTheme {
   bg: any;
   label: string;
 }
-export type LocalTheme = string;
 export type ThemeContextType = {
   theme: MainDefaultTheme;
   toggleTheme: () => void;
-  localTheme: any;
-  currTheme: MainDefaultTheme;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: themes.darkTheme,
   toggleTheme: () => null,
-  localTheme: "dark",
-  currTheme: themes.darkTheme,
 });
 
 type ThemeProviderProps = {
@@ -28,32 +23,27 @@ type ThemeProviderProps = {
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   children,
 }) => {
-  const [localTheme, setLocalTheme] = useState("");
-
   useEffect(() => {
-    setLocalTheme(localStorage.theme);
-  }, [localTheme]);
-
-  const defaultTheme =
-    localTheme === "dark" ? themes.darkTheme : themes.lightTheme;
-  const [currTheme, setCurrTheme] = useState<MainDefaultTheme>(defaultTheme);
+    setCurrTheme(
+      localStorage.theme === "light" ? themes.lightTheme : themes.darkTheme
+    );
+  }, []);
+  const [currTheme, setCurrTheme] = useState<MainDefaultTheme>(
+    themes.lightTheme
+  );
 
   const toggleTheme = () => {
     if (currTheme === themes.darkTheme) {
       setCurrTheme(themes.lightTheme);
-      setLocalTheme("light");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", themes.lightTheme.label)
     } else {
       setCurrTheme(themes.darkTheme);
-      setLocalTheme("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", themes.darkTheme.label);
     }
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ theme: currTheme, toggleTheme, localTheme, currTheme }}
-    >
+    <ThemeContext.Provider value={{ theme: currTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

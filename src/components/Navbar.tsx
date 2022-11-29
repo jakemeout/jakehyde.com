@@ -8,12 +8,8 @@ const Navbar: React.FC = () => {
   return (
     <NavContainer theme={theme}>
       <LogoGlow>
-        <Logo theme={theme} className="J">
-          J
-        </Logo>
-        <Logo theme={theme} className="H">
-          H
-        </Logo>
+        <Logo theme={theme}>J</Logo>
+        <Logo theme={theme}>H</Logo>
       </LogoGlow>
       <LinkContainer>
         <LinkGlow href="https://jakemeout.github.io/resume/" theme={theme}>

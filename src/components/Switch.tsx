@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
 
 const Switch: React.FC = () => {
-  const { toggleTheme, localTheme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
   return (
     <SwitchContainer>
       <Toggle onClick={toggleTheme}>
-        {localTheme.length && localTheme === "light" ? (
+        {theme.label === "light" ? (
           <DarkSun
             src={`/sun-dark.png`}
             alt="dark-sun"
