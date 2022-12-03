@@ -91,7 +91,7 @@ const NavContainer = styled.div(
   ({ theme }) => `
   display:flex;
   justify-content: space-between;
-  border-top: 6px solid ${theme.hr.primary};
+  border-top: 12px solid ${theme.hr.primary};
   padding: 0px 90px 0px 90px;
   @media screen and (max-width: 600px) {
     justify-content: center;
@@ -115,7 +115,7 @@ const Logo = styled.h1(
   color: ${theme.text.primary};
   font-weight: 300;
   align-self: start;
-  text-shadow: 0 0 5px ${theme.text.primary};
+  
   -webkit-transform: scale(1) translate3d(0, 0, 0);
   background: transparent;
   box-shadow: none;
