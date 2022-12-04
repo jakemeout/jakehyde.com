@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Typed from "typed.js";
 
 type HeaderProps = {
@@ -35,7 +34,7 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
     };
   }, []);
 
-  const { theme } = useTheme();
+  const theme = useTheme();
   return (
     <HeaderText theme={theme}>
       <div>

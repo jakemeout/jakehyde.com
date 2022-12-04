@@ -1,6 +1,5 @@
 import React from "react";
-import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 type DescriptionProps = {
   children: React.ReactNode;
@@ -9,7 +8,7 @@ type DescriptionProps = {
 const Description: React.FunctionComponent<DescriptionProps> = ({
   children,
 }) => {
-  const { theme } = useTheme();
+  const theme = useTheme();
   return <DescriptionText theme={theme}>{children}</DescriptionText>;
 };
 

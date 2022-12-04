@@ -1,13 +1,12 @@
 import React from "react";
-import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 type FooterProps = {
   children: React.ReactNode;
 };
 
 const Footer: React.FunctionComponent<FooterProps> = ({ children }) => {
-  const { theme } = useTheme();
+  const theme = useTheme();
   return <FooterText theme={theme}>{children}</FooterText>;
 };
 

@@ -1,24 +1,25 @@
 import React from "react";
-import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
-import styled from "styled-components";
+import Link from "next/link";
+import styled, { useTheme } from "styled-components";
 import Switch from "./Switch";
+import { IToggle } from "../../types/AppTypes";
 
-const Navbar: React.FC = () => {
-  const { theme } = useTheme();
+const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
+  const theme = useTheme();
   return (
     <NavContainer theme={theme}>
-      <LogoGlow>
+      <JHLogo href="/">
         <Logo theme={theme}>J</Logo>
         <Logo theme={theme}>H</Logo>
-      </LogoGlow>
+      </JHLogo>
       <LinkContainer>
         <LinkGlow href="https://jakemeout.github.io/resume/" theme={theme}>
           Resumè
         </LinkGlow>
-        <LinkGlow href="/Blog" theme={theme}>
+        <LinkGlow href="/blog" theme={theme}>
           Blog
         </LinkGlow>
-        <Link
+        <NavLink
           href="https://twitter.com/jakeme0ut"
           target="_blank"
           rel="noopener"
@@ -38,8 +39,8 @@ const Navbar: React.FC = () => {
               height={25}
             />
           )}
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           href="https://www.linkedin.com/in/jacobhyde/"
           target="_blank"
           rel="noopener"
@@ -59,8 +60,8 @@ const Navbar: React.FC = () => {
               height={25}
             />
           )}
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           href="https://github.com/jakemeout"
           target="_blank"
           rel="noopener"
@@ -80,8 +81,8 @@ const Navbar: React.FC = () => {
               height={25}
             />
           )}
-        </Link>
-        <Switch />
+        </NavLink>
+        <Switch toggleTheme={toggleTheme} />
       </LinkContainer>
     </NavContainer>
   );
@@ -99,12 +100,12 @@ const NavContainer = styled.div(
   `
 );
 
-const LogoGlow = styled.div`
+const JHLogo = styled(Link)`
   display: flex;
   padding: 15px 50px 15px 50px;
+  text-decoration: none;
 `;
-
-const Link = styled.a`
+const NavLink = styled(Link)`
   width: 25px;
   height: 25px;
   margin-right: 15px;
@@ -126,7 +127,7 @@ const GitHubIcon = styled.img``;
 const LinkedInIcon = styled.img``;
 const TwitterIcon = styled.img``;
 
-const LinkGlow = styled.a(
+const LinkGlow = styled(Link)(
   ({ theme }) => `
   color: ${theme.text.primary};
   margin-right: 15px;

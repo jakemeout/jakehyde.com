@@ -1,79 +1,69 @@
 import type { NextPage } from "next";
-import { useTheme } from "../styles/ThemeProvider/ThemeProvider";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Heading from "../src/components/Heading";
-import Navbar from "../src/components/Navbar";
 import Description from "../src/components/Description";
-import GlobalStyle from "../styles/GlobalStyles";
 import Footer from "../src/components/Footer";
 
 const Home: NextPage = () => {
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   return (
-    <>
-      <GlobalStyle theme={theme} />
-      <Navbar />
-      <Content>
-        <ProfilePhoto theme={theme} src={`/JakeGreyBkBridge.png`} />
-        <DescriptionContainer>
-          <Heading children={undefined}></Heading>
-          <Description>
-            I am a fullstack Associate Software Engineer at&nbsp;
-            <Link
-              theme={theme}
-              href="https://amplify.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              Amplify
-            </Link>
-            &nbsp;and I live in NY. I've worked in Information Technology for
-            many years in a variety of roles such as Help Desk Technician,
-            Project Coordinator, Program manager, and now Software Engineer.
-            I've worked for companies such as&nbsp;
-            <Link
-              theme={theme}
-              href="https://www.apple.com"
-              target="_blank"
-              rel="noopener"
-            >
-              Apple
-            </Link>
-            ,&nbsp;
-            <Link
-              theme={theme}
-              href="https://www.enjoy.com"
-              target="_blank"
-              rel="noopener"
-            >
-              Enjoy
-            </Link>
-            ,&nbsp;
-            <Link
-              theme={theme}
-              href="https://about.facebook.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              Meta (formerly Facebook)
-            </Link>
-            , and&nbsp;
-            <Link
-              theme={theme}
-              href="https://www.uber.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              Uber.
-            </Link>
-          </Description>
-        </DescriptionContainer>
-      </Content>
-      <FooterContainer>
-        <Footer>© COPYRIGHTS JAKE HYDE. ALL RIGHTS RESERVED.</Footer>
-      </FooterContainer>
-    </>
+    <Content>
+      <ProfilePhoto theme={theme} src={`/JakeGreyBkBridge.png`} />
+      <DescriptionContainer>
+        <Heading children={undefined}></Heading>
+        <Description>
+          I am a fullstack Associate Software Engineer at&nbsp;
+          <Link
+            theme={theme}
+            href="https://amplify.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Amplify
+          </Link>
+          &nbsp;and I live in NY. I've worked in Information Technology for many
+          years in a variety of roles such as Help Desk Technician, Project
+          Coordinator, Program manager, and now Software Engineer. I've worked
+          for companies such as&nbsp;
+          <Link
+            theme={theme}
+            href="https://www.apple.com"
+            target="_blank"
+            rel="noopener"
+          >
+            Apple
+          </Link>
+          ,&nbsp;
+          <Link
+            theme={theme}
+            href="https://www.enjoy.com"
+            target="_blank"
+            rel="noopener"
+          >
+            Enjoy
+          </Link>
+          ,&nbsp;
+          <Link
+            theme={theme}
+            href="https://about.facebook.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Meta (formerly Facebook)
+          </Link>
+          , and&nbsp;
+          <Link
+            theme={theme}
+            href="https://www.uber.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Uber.
+          </Link>
+        </Description>
+      </DescriptionContainer>
+    </Content>
   );
 };
 
@@ -115,10 +105,4 @@ const ProfilePhoto = styled.img(
 `
 );
 
-const FooterContainer = styled.div`
-  position: absolute;
-  bottom: 50px;
-  width: 100%;
-  text-align: center;
-`;
 export default Home;

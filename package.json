@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "files": [
+    "src/styles/styled.d.ts"
+  ],
   "dependencies": {
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",

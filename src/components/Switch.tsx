@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import { useTheme } from "../../styles/ThemeProvider/ThemeProvider";
+import styled, { useTheme } from "styled-components";
+import { IToggle } from "../../types/AppTypes";
 
-const Switch: React.FC = () => {
-  const { toggleTheme, theme } = useTheme();
+const Switch: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
+  const theme = useTheme();
   return (
     <SwitchContainer>
       <Toggle onClick={toggleTheme}>
