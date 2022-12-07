@@ -5,6 +5,7 @@ import { lightTheme, darkTheme, defaultTheme } from "../../styles/theme";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+
 type LayoutProps = {
   children: React.ReactNode;
 };

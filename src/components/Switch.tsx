@@ -32,6 +32,7 @@ const Toggle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  cursor: pointer;
 `;
 const DarkSun = styled.img``;
 const LightMoon = styled.img``;
