@@ -1,0 +1,32 @@
+{
+    "blog_posts": [
+        {
+            "id": 1,
+            "title": "It's Jan 1st",
+            "post_body": "Today is Jan first, so naturally I wanted to start something new. I started building this website as a way to learn NextJS and Typescript but realized it was a great opportunity to start a blog as well. So here you go!",
+            "likes": 4,
+            "datetime": "2023-01-01T09:00:00.594Z"
+        },
+        {
+            "id": 2,
+            "title": "Second Post",
+            "post_body": "There is something so unique about building your own blog...",
+            "likes": 4,
+            "datetime": "2023-01-02T09:00:00.594Z"
+        },
+        {
+            "id": 3,
+            "title": "Third Post",
+            "post_body": "There is something so unique about building your own blog...",
+            "likes": 4,
+            "datetime": "2023-01-03T09:00:00.594Z"
+        },
+        {
+            "id": 4,
+            "title": "Fourth Post",
+            "post_body": "There is something so unique about building your own blog...",
+            "likes": 4,
+            "datetime": "2023-01-04T09:00:00.594Z"
+        }
+    ]
+}

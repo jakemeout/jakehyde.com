@@ -1,5 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
+import MockBlogPosts from "../mocks/blogPosts.json";
+import BlogPosts from "../src/components/BlogPosts";
 /**
  * TODO
  *  Add Blog route
@@ -9,22 +11,20 @@ import styled, { useTheme } from "styled-components";
  *
  */
 
-type BlogProps = {
-  children: React.ReactNode;
+const Blog: React.FunctionComponent = () => {
+  return (
+    <BlogSection>
+      <BlogPosts posts={MockBlogPosts.blog_posts} />
+    </BlogSection>
+  );
 };
-
-const Blog: React.FunctionComponent<BlogProps> = ({ children }) => {
-  const theme = useTheme();
-  return <BlogContainer theme={theme}>Hello World{children}</BlogContainer>;
-};
-
-const BlogContainer = styled.h6(
+const BlogSection = styled.div(
   ({ theme }) => `
   display: flex;
   flex-direction: row;
-  align-items:center;
-
- `
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+`
 );
-
 export default Blog;
