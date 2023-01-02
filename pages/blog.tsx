@@ -4,11 +4,9 @@ import MockBlogPosts from "../mocks/blogPosts.json";
 import BlogPosts from "../src/components/BlogPosts";
 /**
  * TODO
- *  Add Blog route
- *  Add Blog page? or component for the pagE?
- *  Create a blog post option?
- *  May need a db to store all the blogs :) setup postgres and graphql maybe?
- *
+ * Create a backend for likes and comments and storing posts - graphql
+ * Create a frontend as admin to create a blog post from the website
+ * Paginate in route
  */
 
 const Blog: React.FunctionComponent = () => {

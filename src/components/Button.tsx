@@ -28,8 +28,8 @@ const Button: React.FunctionComponent<ButtonType> = ({
 
 const ButtonStyle = styled.button(
   ({ theme }) => `
-  color: ${theme.text.primary}
-  width: 95px;
+  color: ${theme.text.primary};
+  width: 125px;
   padding: 0;
   border: none;
   background: none;

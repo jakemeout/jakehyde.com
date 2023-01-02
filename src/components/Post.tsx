@@ -26,7 +26,9 @@ const Post: React.FunctionComponent<PostProps> = ({ post }) => {
     </PostContainer>
   );
 };
+const DateStyle = styled.div`
 
+`
 const PostHeader = styled.div(
   ({ theme }) => `
   display:flex;
@@ -48,12 +50,14 @@ const PostContainer = styled.div(
   display: flex;
   flex-direction: column;
   color: ${theme.text.primary};
+  
   font-weight: 200;
   font-size: 16px;
-  justify-content:center;
+  justify-content:flex-start;
   padding: 3%;
   margin: 2%;
   width: 75%;
+  min-height: 400px;
   border-radius: 10px;
   border: .5px solid rgba( 255, 255, 255, 0.18 );
   backdrop-filter: blur( 7.5px );

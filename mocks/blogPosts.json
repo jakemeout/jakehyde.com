@@ -3,30 +3,30 @@
         {
             "id": 1,
             "title": "It's Jan 1st",
-            "post_body": "Today is Jan first, so naturally I wanted to start something new. I started building this website as a way to learn NextJS and Typescript but realized it was a great opportunity to start a blog as well. So here you go!",
+            "post_body": "Today is Jan first, so naturally I wanted to start something new. I started building this website as a way to learn the NextJS framework along with Typescript. However, I've realized this is a great opportunity to start blogging as well. So here you go! 2023 is starting off to be a wonderful new year. I had COVID for the last week to end 2022, which is fitting isn't it? It is an exciting new start to be a better version of oneself, and I for one, am very ready to be a better version. A Jake 2.0 if you will. No, I seriously am not referencing the TV show, that Jake is a bitch, I am the real deal :p. Any way cheers to the new year, cheers to new you, and cheers to leveling up!!!",
             "likes": 4,
             "datetime": "2023-01-01T09:00:00.594Z"
         },
         {
             "id": 2,
-            "title": "Second Post",
+            "title": "3rd Post",
             "post_body": "There is something so unique about building your own blog...",
             "likes": 4,
-            "datetime": "2023-01-02T09:00:00.594Z"
+            "datetime": "2022-12-31T09:00:00.594Z"
         },
         {
             "id": 3,
-            "title": "Third Post",
+            "title": "2nd Post",
             "post_body": "There is something so unique about building your own blog...",
             "likes": 4,
-            "datetime": "2023-01-03T09:00:00.594Z"
+            "datetime": "2022-12-30T09:00:00.594Z"
         },
         {
             "id": 4,
-            "title": "Fourth Post",
+            "title": "first Post",
             "post_body": "There is something so unique about building your own blog...",
             "likes": 4,
-            "datetime": "2023-01-04T09:00:00.594Z"
+            "datetime": "2022-12-29T09:00:00.594Z"
         }
     ]
 }

@@ -6,6 +6,7 @@ import Button from "./Button";
 type Posts = {
   posts: PostType[];
 };
+type PageNumPropType = { pageNum: number };
 
 const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
   const [pageNum, setPageNum] = useState(0);
@@ -15,38 +16,51 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
     return <Post key={posts[pageNum].id} post={posts[pageNum]} />;
   };
 
-  const onPageHanler = (e: any) => {
-    e.target.dataset.id;
+  const onPageHandler = (e: any) => {
+    pageNum === posts.length && alert("This is the end dude");
+    e.target.dataset.id === "forward" && pageNum !== posts.length
+      ? setPageNum(pageNum + 1)
+      : setPageNum(pageNum - 1);
   };
 
   return (
-    <BlogPostsContainer theme={theme}>
-      <>{renderPage(pageNum)}</>
-      <FooterNavigation >
+    <BlogPageLayout>
+      <BlogPostsContainer theme={theme}>
+        {renderPage(pageNum)}
+      </BlogPostsContainer>
+      <FooterNavigation pageNum={pageNum}>
         {pageNum !== 0 && (
           <Button
             identifier={"back"}
-            buttonText={"last blog"}
+            buttonText={"newer posts"}
             buttonIcon={"←"}
-            onClick={onPageHanler}
+            onClick={onPageHandler}
           />
         )}
         <Button
           identifier={"forward"}
-          buttonText={"next blog"}
+          buttonText={"older posts"}
           buttonIcon={"→"}
-          onClick={onPageHanler}
+          onClick={onPageHandler}
         />
       </FooterNavigation>
-    </BlogPostsContainer>
+    </BlogPageLayout>
   );
 };
-const FooterNavigation = styled.div(
-  ({  }) => `
+//
+const BlogPageLayout = styled.div(
+  ({}) => `
+  width: 100%;
+`
+);
+
+const FooterNavigation = styled.div<PageNumPropType>(
+  ({ pageNum }) => `
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 500px;
+  justify-content: ${pageNum === 0 ? "flex-end" : "space-between"};
+  padding-left: 10%;
+  padding-right: 10%;
 `
 );
 
