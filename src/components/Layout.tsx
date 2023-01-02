@@ -42,7 +42,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
 
 const FooterContainer = styled.div`
   position: absolute;
-  bottom: 50px;
+  bottom: 30px;
   width: 100%;
   text-align: center;
 `;
