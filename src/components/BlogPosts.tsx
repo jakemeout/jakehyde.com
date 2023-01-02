@@ -17,8 +17,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
   };
 
   const onPageHandler = (e: any) => {
-    pageNum === posts.length && alert("This is the end dude");
-    e.target.dataset.id === "forward" && pageNum !== posts.length
+    e.target.dataset.id === "forward" && pageNum < posts.length - 1
       ? setPageNum(pageNum + 1)
       : setPageNum(pageNum - 1);
   };
@@ -29,19 +28,21 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
         {renderPage(pageNum)}
       </BlogPostsContainer>
       <FooterNavigation pageNum={pageNum}>
-        {pageNum !== 0 && (
-          <Button
-            identifier={"back"}
-            buttonText={"newer posts"}
-            buttonIcon={"←"}
-            onClick={onPageHandler}
-          />
-        )}
+        <Button
+          identifier={"back"}
+          buttonText={"newer posts"}
+          buttonIcon={"←"}
+          onClick={onPageHandler}
+          hidden={pageNum === 0}
+          disabled={pageNum === 0}
+        />
         <Button
           identifier={"forward"}
           buttonText={"older posts"}
           buttonIcon={"→"}
           onClick={onPageHandler}
+          hidden={pageNum === posts.length - 1}
+          disabled={pageNum === posts.length - 1}
         />
       </FooterNavigation>
     </BlogPageLayout>
