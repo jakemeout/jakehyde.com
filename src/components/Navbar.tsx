@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 import styled, { useTheme } from "styled-components";
 import Switch from "./Switch";
 import { IToggle } from "../../types/AppTypes";
-
+import Modal from "./Modal";
+import Login from "./Login";
 const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const onClose = () => {
+    setIsOpen(false);
+  };
+
+  const { data: session } = useSession();
   const theme = useTheme();
   return (
     <NavContainer theme={theme}>
+      <Modal isOpen={isOpen} onClose={onClose} content={<Login />} />
       <JHLogo href="/">
         <Logo theme={theme}>J</Logo>
         <Logo theme={theme}>H</Logo>
@@ -19,6 +28,13 @@ const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
         <LinkGlow href="/blog" theme={theme}>
           Blog
         </LinkGlow>
+        <SignIn theme={theme}>
+          {session ? (
+            <p onClick={() => signOut()}>Sign out</p>
+          ) : (
+            <p onClick={() => setIsOpen(true)}>SignIn</p>
+          )}
+        </SignIn>
         <NavLink
           href="https://twitter.com/jakeme0ut"
           target="_blank"
@@ -129,6 +145,19 @@ const TwitterIcon = styled.img``;
 
 const LinkGlow = styled(Link)(
   ({ theme }) => `
+  color: ${theme.text.primary};
+  margin-right: 15px;
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: none;
+  :hover {
+    text-shadow: 0 0 6px ${theme.text.primary};
+  }
+  `
+);
+const SignIn = styled("div")(
+  ({ theme }) => `
+  cursor: pointer;
   color: ${theme.text.primary};
   margin-right: 15px;
   font-weight: 200;
