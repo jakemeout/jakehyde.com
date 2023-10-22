@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import { IToggle } from "../../types/AppTypes";
 
 type ButtonType = {
   hidden?: boolean;
@@ -9,6 +8,7 @@ type ButtonType = {
   buttonText: string;
   buttonIcon: React.ReactNode;
   onClick: (e: any) => void;
+  className: string;
 };
 
 const Button: React.FunctionComponent<ButtonType> = ({
@@ -18,11 +18,13 @@ const Button: React.FunctionComponent<ButtonType> = ({
   buttonText,
   buttonIcon,
   onClick,
+  className,
 }) => {
   const theme = useTheme();
 
   return (
     <ButtonStyle
+      className={className}
       data-id={identifier}
       theme={theme}
       onClick={onClick}

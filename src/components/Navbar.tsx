@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import styled, { useTheme } from "styled-components";
 import Switch from "./Switch";
 import { IToggle } from "../../types/AppTypes";
 import Modal from "./Modal";
 import Login from "./Login";
+
 const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const onClose = () => {
@@ -13,6 +14,7 @@ const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
   };
 
   const { data: session } = useSession();
+  console.log(session);
   const theme = useTheme();
   return (
     <NavContainer theme={theme}>
@@ -29,10 +31,10 @@ const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
           Blog
         </LinkGlow>
         <SignIn theme={theme}>
-          {session ? (
-            <p onClick={() => signOut()}>Sign out</p>
+          {!session ? (
+            <p onClick={() => setIsOpen(true)}>Sign In</p>
           ) : (
-            <p onClick={() => setIsOpen(true)}>SignIn</p>
+            <p onClick={() => signOut()}>Sign Out</p>
           )}
         </SignIn>
         <NavLink

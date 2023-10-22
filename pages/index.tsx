@@ -1,8 +1,8 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import styled, { useTheme } from "styled-components";
 import Heading from "../src/components/Heading";
 import Description from "../src/components/Description";
-import Footer from "../src/components/Footer";
+// import prisma from "../lib/prisma";
 
 const Home: NextPage = () => {
   const theme = useTheme();
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       <DescriptionContainer>
         <Heading children={undefined}></Heading>
         <Description>
-          I am a fullstack Associate Software Engineer at&nbsp;
+          I am a fullstack Software Engineer at&nbsp;
           <Link
             theme={theme}
             href="https://amplify.com/"
@@ -106,3 +106,18 @@ const ProfilePhoto = styled.img(
 );
 
 export default Home;
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   const feed = await prisma.post.findMany({
+//     where: { published: true },
+//     include: {
+//       author: {
+//         select: { name: true },
+//       },
+//     },
+//   });
+//   return {
+//     props: { feed },
+//     revalidate: 10,
+//   };
+// };

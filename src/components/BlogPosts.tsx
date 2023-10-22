@@ -29,6 +29,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
       </BlogPostsContainer>
       <FooterNavigation pageNum={pageNum}>
         <Button
+          className="back"
           identifier={"back"}
           buttonText={"newer posts"}
           buttonIcon={"←"}
@@ -37,6 +38,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
           disabled={pageNum === 0}
         />
         <Button
+          className="forward"
           identifier={"forward"}
           buttonText={"older posts"}
           buttonIcon={"→"}
