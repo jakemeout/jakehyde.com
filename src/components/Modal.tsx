@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 type ModalProps = {
   isOpen: boolean;
@@ -16,9 +16,11 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     return null;
   }
 
+  const theme = useTheme();
+
   return (
-    <ModalOverlay>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
+    <ModalOverlay theme={theme}>
+      <ModalContent theme={theme} onClick={(e) => e.stopPropagation()}>
         <CloseButton className="close" onClick={onClose} />
         {content}
       </ModalContent>
@@ -26,7 +28,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   );
 };
 
-const ModalOverlay = styled.div`
+const ModalOverlay = styled.div(
+  ({ theme }) => `
   position: fixed;
   top: 0;
   left: 0;
@@ -37,12 +40,15 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 5;
-`;
+`
+);
 
-const ModalContent = styled.div`
-  width: 50%;
-  height: 50%;
-  background: white;
+const ModalContent = styled.div(
+  ({ theme }) => `
+  color: ${theme.text.primary};
+  background: ${theme.bg.primary};
+  width: 60%;
+  height: 70%;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -51,7 +57,8 @@ const ModalContent = styled.div`
   flex-direction: column;
   justify-content: left;
   align-items: right;
-`;
+`
+);
 
 const CloseButton = styled.button`
   align-self: flex-end;
@@ -62,7 +69,7 @@ const CloseButton = styled.button`
   color: gray;
   transition: color 0.2s;
   background: none;
-  
+
   &::before {
     content: "✕";
     font-size: 36px;

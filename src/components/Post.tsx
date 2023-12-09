@@ -1,34 +1,35 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-type PostProps = {
+export type PostProps = {
+  id: number;
+  title: string;
+  content: string;
+  datetime: string;
   post: PostType;
 };
 
 export type PostType = {
   id: number;
   title: string;
-  post_body: string;
-  likes: number;
+  content: string;
   datetime: string;
 };
 
 const Post: React.FunctionComponent<PostProps> = ({ post }) => {
   const theme = useTheme();
-  const date = new Date(post.datetime);
   return (
     <PostContainer theme={theme}>
       <PostHeader>
         <div>{post.title}</div>
-        <div>{date.toLocaleDateString("en-US")}</div>
+        <div>{post.datetime}</div>
       </PostHeader>
-      <PostBody>{post.post_body}</PostBody>
+      <PostBody>{post.content}</PostBody>
     </PostContainer>
   );
 };
-const DateStyle = styled.div`
 
-`
+const DateStyle = styled.div``;
 const PostHeader = styled.div(
   ({ theme }) => `
   display:flex;
