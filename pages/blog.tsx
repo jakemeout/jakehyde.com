@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import MockBlogPosts from "../mocks/blogPosts.json";
 import BlogPosts from "../src/components/BlogPosts";
+import prisma from "../lib/prisma";
 /**
  * TODO
  * Create a backend for likes and comments and storing posts - graphql
@@ -10,9 +10,11 @@ import BlogPosts from "../src/components/BlogPosts";
  */
 
 const Blog: React.FunctionComponent = () => {
+  const posties =  prisma.post.findMany();
+  console.log(posties)
   return (
     <BlogSection>
-      <BlogPosts posts={MockBlogPosts.blog_posts} />
+      <BlogPosts posts={posts} />
     </BlogSection>
   );
 };

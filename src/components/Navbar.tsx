@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 import styled, { useTheme } from "styled-components";
 import Switch from "./Switch";
 import { IToggle } from "../../types/AppTypes";
+import Modal from "./Modal";
+import Login from "./Login";
+import Admin from "../../pages/admin";
 
 const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalContent, setContent] = useState(<></>);
+  const onClose = () => {
+    setIsOpen(false);
+  };
+
+  const { data: session } = useSession();
   const theme = useTheme();
   return (
     <NavContainer theme={theme}>
+      <Modal isOpen={isOpen} onClose={onClose} content={modalContent} />
       <JHLogo href="/">
         <Logo theme={theme}>J</Logo>
         <Logo theme={theme}>H</Logo>
@@ -19,6 +31,33 @@ const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
         <LinkGlow href="/blog" theme={theme}>
           Blog
         </LinkGlow>
+        <SignIn theme={theme}>
+          {!session ? (
+            <p
+              onClick={() => {
+                setIsOpen(true);
+                setContent(<Login />);
+              }}
+            >
+              Sign In
+            </p>
+          ) : (
+            <p onClick={() => signOut()}>Sign Out</p>
+          )}
+        </SignIn>
+        {session?.user?.email ===
+          ("jacobosity@gmail.com" || "jakehydedev@gmail.com") && (
+          <AdminLink theme={theme}>
+            <p
+              onClick={() => {
+                setIsOpen(true);
+                setContent(<Admin />);
+              }}
+            >
+              Admin
+            </p>
+          </AdminLink>
+        )}
         <NavLink
           href="https://twitter.com/jakeme0ut"
           target="_blank"
@@ -129,6 +168,32 @@ const TwitterIcon = styled.img``;
 
 const LinkGlow = styled(Link)(
   ({ theme }) => `
+  color: ${theme.text.primary};
+  margin-right: 15px;
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: none;
+  :hover {
+    text-shadow: 0 0 6px ${theme.text.primary};
+  }
+  `
+);
+const SignIn = styled("div")(
+  ({ theme }) => `
+  cursor: pointer;
+  color: ${theme.text.primary};
+  margin-right: 15px;
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: none;
+  :hover {
+    text-shadow: 0 0 6px ${theme.text.primary};
+  }
+  `
+);
+const AdminLink = styled("div")(
+  ({ theme }) => `
+  cursor: pointer;
   color: ${theme.text.primary};
   margin-right: 15px;
   font-weight: 200;

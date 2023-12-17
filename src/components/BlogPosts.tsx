@@ -3,6 +3,8 @@ import styled, { useTheme } from "styled-components";
 import Post from "./Post";
 import { PostType } from "./Post";
 import Button from "./Button";
+import { getServerSideProps } from "next/dist/build/templates/pages";
+
 type Posts = {
   posts: PostType[];
 };
@@ -29,6 +31,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
       </BlogPostsContainer>
       <FooterNavigation pageNum={pageNum}>
         <Button
+          className="back"
           identifier={"back"}
           buttonText={"newer posts"}
           buttonIcon={"←"}
@@ -37,6 +40,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
           disabled={pageNum === 0}
         />
         <Button
+          className="forward"
           identifier={"forward"}
           buttonText={"older posts"}
           buttonIcon={"→"}
