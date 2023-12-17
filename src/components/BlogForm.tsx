@@ -3,9 +3,10 @@ import styled, { useTheme } from "styled-components";
 import { darkTheme, lightTheme } from "../../styles/theme";
 import { EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { convertToRaw } from "draft-js";
 
 interface BlogFormProps {
-  onSubmit: (title: string, content: any, publishedDate: string) => void;
+  onSubmit: (e: React.SyntheticEvent, title: string, content: any) => void;
 }
 import dynamic from "next/dynamic";
 const Editor = dynamic(() =>
@@ -14,8 +15,8 @@ const Editor = dynamic(() =>
 const BlogForm: React.FC<BlogFormProps> = ({ onSubmit }) => {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState(EditorState.createEmpty());
-  const [publishedDate, setPublishedDate] = useState<string>("");
-
+  const rawContentState = convertToRaw(content.getCurrentContent());
+  const contentInJSON = JSON.stringify(rawContentState);
   const handleTitleChange = (event: any) => {
     setTitle(event.target.value);
   };
@@ -24,9 +25,9 @@ const BlogForm: React.FC<BlogFormProps> = ({ onSubmit }) => {
     setContent(event);
   };
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    onSubmit(title, content, publishedDate);
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    onSubmit(e, title, contentInJSON);
   };
 
   const theme = useTheme();

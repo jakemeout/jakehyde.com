@@ -3,6 +3,8 @@ import styled, { useTheme } from "styled-components";
 import Post from "./Post";
 import { PostType } from "./Post";
 import Button from "./Button";
+import { getServerSideProps } from "next/dist/build/templates/pages";
+
 type Posts = {
   posts: PostType[];
 };
