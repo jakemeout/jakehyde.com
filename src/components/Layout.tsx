@@ -27,16 +27,16 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   };
   const theme = useTheme();
   return (
-    <LayoutStyle theme={theme}>
-      <ThemeProvider theme={currTheme}>
+    <ThemeProvider theme={currTheme}>
+      <LayoutStyle>
         <GlobalStyle theme={theme} />
         <Navbar toggleTheme={toggleTheme} />
         <main>{children}</main>
         <FooterContainer>
           <Footer>© COPYRIGHTS JAKE HYDE. ALL RIGHTS RESERVED.</Footer>
         </FooterContainer>
-      </ThemeProvider>
-    </LayoutStyle>
+      </LayoutStyle>
+    </ThemeProvider>
   );
 };
 
@@ -47,7 +47,7 @@ const FooterContainer = styled.div`
   text-align: center;
 `;
 const LayoutStyle = styled.div(
-  ({ theme }) => `
+  ({ }) => `
 
 `
 );

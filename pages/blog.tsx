@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import MockBlogPosts from "../mocks/blogPosts.json";
 import BlogPosts from "../src/components/BlogPosts";
 /**
@@ -16,13 +16,11 @@ const Blog: React.FunctionComponent = () => {
     </BlogSection>
   );
 };
-const BlogSection = styled.div(
-  ({ theme }) => `
+const BlogSection = styled.div`
   display: flex;
   flex-direction: row;
   width: 80%;
   height: 100%;
   margin: 0 auto;
-`
-);
+`;
 export default Blog;

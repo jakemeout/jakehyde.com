@@ -1,90 +1,94 @@
-import React from "react";
 import Link from "next/link";
-import styled, { useTheme } from "styled-components";
-import Switch from "./Switch";
+import React from "react";
+import styled, { ThemeProvider, useTheme } from "styled-components";
 import { IToggle } from "../../types/AppTypes";
+import Switch from "./Switch";
 
 const Navbar: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
   const theme = useTheme();
   return (
-    <NavContainer theme={theme}>
+    <ThemeProvider theme={theme}>
+      <NavContainer>
       <JHLogo href="/">
         <Logo theme={theme}>J</Logo>
         <Logo theme={theme}>H</Logo>
       </JHLogo>
       <LinkContainer>
-        <LinkGlow href="https://jakemeout.github.io/resume/" theme={theme}>
+        <ExternalLinkGlow href="https://jakemeout.github.io/resume/" theme={theme} target="_blank" rel="noopener noreferrer">
           Resumè
-        </LinkGlow>
-        <LinkGlow href="/blog" theme={theme}>
-          Blog
-        </LinkGlow>
-        <NavLink
+        </ExternalLinkGlow>
+        <Link href="/blog" passHref>
+          <InternalLinkGlow theme={theme}>
+            Blog
+          </InternalLinkGlow>
+        </Link>
+        <ExternalNavLink
           href="https://twitter.com/jakeme0ut"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           {theme.label === "dark" ? (
-            <TwitterIcon
+            <img
               src={`/twitter-light.png`}
               alt="twitter-light"
               width={25}
               height={25}
             />
           ) : (
-            <TwitterIcon
+            <img
               src={`/twitter-dark.png`}
               alt="twitter-dark"
               width={25}
               height={25}
             />
           )}
-        </NavLink>
-        <NavLink
+        </ExternalNavLink>
+        <ExternalNavLink
           href="https://www.linkedin.com/in/jacobhyde/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           {theme.label === "dark" ? (
-            <LinkedInIcon
+            <img
               src={`/linkedin-light.png`}
               alt="linkedin-light"
               width={25}
               height={25}
             />
           ) : (
-            <LinkedInIcon
+            <img
               src={`/linkedin-dark.png`}
               alt="linkedin-dark"
               width={25}
               height={25}
             />
           )}
-        </NavLink>
-        <NavLink
+        </ExternalNavLink>
+        <ExternalNavLink
           href="https://github.com/jakemeout"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           {theme.label === "dark" ? (
-            <GitHubIcon
+            <img
               src={`/github-light.png`}
               alt="github-light"
               width={25}
               height={25}
             />
           ) : (
-            <GitHubIcon
+            <img
               src={`/github-dark.png`}
               alt="github-dark"
               width={25}
               height={25}
             />
           )}
-        </NavLink>
+        </ExternalNavLink>
         <Switch toggleTheme={toggleTheme} />
       </LinkContainer>
     </NavContainer>
+    </ThemeProvider>
   );
 };
 
@@ -105,29 +109,15 @@ const JHLogo = styled(Link)`
   padding: 15px 50px 15px 50px;
   text-decoration: none;
 `;
-const NavLink = styled(Link)`
+
+const ExternalNavLink = styled.a<{ children?: React.ReactNode; href: string; target?: string; rel?: string }>`
   width: 25px;
   height: 25px;
   margin-right: 15px;
+  cursor: pointer;
 `;
 
-const Logo = styled.h1(
-  ({ theme }) => `
-  color: ${theme.text.primary};
-  font-weight: 300;
-  align-self: start;
-  
-  -webkit-transform: scale(1) translate3d(0, 0, 0);
-  background: transparent;
-  box-shadow: none;
-`
-);
-
-const GitHubIcon = styled.img``;
-const LinkedInIcon = styled.img``;
-const TwitterIcon = styled.img``;
-
-const LinkGlow = styled(Link)(
+const InternalLinkGlow = styled.a<{ children?: React.ReactNode }>(
   ({ theme }) => `
   color: ${theme.text.primary};
   margin-right: 15px;
@@ -139,6 +129,33 @@ const LinkGlow = styled(Link)(
   }
   `
 );
+
+const ExternalLinkGlow = styled.a<{ children?: React.ReactNode; href: string; target?: string; rel?: string }>(
+  ({ theme }) => `
+  color: ${theme.text.primary};
+  margin-right: 15px;
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  :hover {
+    text-shadow: 0 0 6px ${theme.text.primary};
+  }
+  `
+);
+
+const Logo = styled.h1<{ children?: React.ReactNode }>(
+  ({ theme }) => `
+  color: ${theme.text.primary};
+  font-weight: 300;
+  align-self: start;
+  
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  background: transparent;
+  box-shadow: none;
+`
+);
+
 
 const LinkContainer = styled.div`
   display: flex;

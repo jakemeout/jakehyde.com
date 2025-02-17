@@ -36,7 +36,7 @@ const Heading: React.FunctionComponent<HeaderProps> = ({ children }) => {
 
   const theme = useTheme();
   return (
-    <HeaderText theme={theme}>
+    <HeaderText theme={theme} as="div">
       <div>
         <span style={{ whiteSpace: "pre" }} ref={el} />
       </div>

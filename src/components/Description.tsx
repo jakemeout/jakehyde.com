@@ -12,7 +12,7 @@ const Description: React.FunctionComponent<DescriptionProps> = ({
   return <DescriptionText theme={theme}>{children}</DescriptionText>;
 };
 
-const DescriptionText = styled.p(
+const DescriptionText = styled.p<{ theme: any; children: React.ReactNode }>(
   ({ theme }) => `
   color: ${theme.text.primary};
   font-weight: 200;

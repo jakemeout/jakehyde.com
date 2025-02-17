@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
 type PostProps = {
   post: PostType;
@@ -14,10 +14,9 @@ export type PostType = {
 };
 
 const Post: React.FunctionComponent<PostProps> = ({ post }) => {
-  const theme = useTheme();
   const date = new Date(post.datetime);
   return (
-    <PostContainer theme={theme}>
+    <PostContainer>
       <PostHeader>
         <div>{post.title}</div>
         <div>{date.toLocaleDateString("en-US")}</div>
@@ -26,11 +25,8 @@ const Post: React.FunctionComponent<PostProps> = ({ post }) => {
     </PostContainer>
   );
 };
-const DateStyle = styled.div`
-
-`
 const PostHeader = styled.div(
-  ({ theme }) => `
+  ({ }) => `
   display:flex;
   justify-content: space-between;
   margin: 1%;
@@ -39,7 +35,7 @@ const PostHeader = styled.div(
 );
 
 const PostBody = styled.div(
-  ({ theme }) => `
+  ({ }) => `
   margin: 1%;
   padding: 3%;
 `

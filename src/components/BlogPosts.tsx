@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import styled, { useTheme } from "styled-components";
 import Post from "./Post";
 import { PostType } from "./Post";
 import Button from "./Button";
+import styled from "styled-components";
+
 type Posts = {
   posts: PostType[];
 };
-type PageNumPropType = { pageNum: number };
+type PageNumPropType = { pageNum: number; children?: React.ReactNode };
 
 const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
   const [pageNum, setPageNum] = useState(0);
-  const theme = useTheme();
 
   const renderPage = (pageNum: number) => {
     return <Post key={posts[pageNum].id} post={posts[pageNum]} />;
@@ -24,7 +24,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
 
   return (
     <BlogPageLayout>
-      <BlogPostsContainer theme={theme}>
+      <BlogPostsContainer>
         {renderPage(pageNum)}
       </BlogPostsContainer>
       <FooterNavigation pageNum={pageNum}>
@@ -65,14 +65,12 @@ const FooterNavigation = styled.div<PageNumPropType>(
 `
 );
 
-const BlogPostsContainer = styled.div(
-  ({ theme }) => `
+const BlogPostsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: auto;
-`
-);
+`;
 
 export default BlogPosts;

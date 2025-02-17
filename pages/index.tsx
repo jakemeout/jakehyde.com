@@ -1,68 +1,69 @@
 import type { NextPage } from "next";
 import styled, { useTheme } from "styled-components";
-import Heading from "../src/components/Heading";
 import Description from "../src/components/Description";
-import Footer from "../src/components/Footer";
+import Heading from "../src/components/Heading";
 
 const Home: NextPage = () => {
   const theme = useTheme();
 
   return (
     <Content>
-      <ProfilePhoto theme={theme} src={`/JakeGreyBkBridge.png`} />
-      <DescriptionContainer>
-        <Heading children={undefined}></Heading>
-        <Description>
-          I am a fullstack Associate Software Engineer at&nbsp;
-          <Link
-            theme={theme}
-            href="https://amplify.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            Amplify
-          </Link>
-          &nbsp;and I live in NY. I've worked in Information Technology for many
-          years in a variety of roles such as Help Desk Technician, Project
-          Coordinator, Program manager, and now Software Engineer. I've worked
-          for companies such as&nbsp;
-          <Link
-            theme={theme}
-            href="https://www.apple.com"
-            target="_blank"
-            rel="noopener"
-          >
-            Apple
-          </Link>
-          ,&nbsp;
-          <Link
-            theme={theme}
-            href="https://www.enjoy.com"
-            target="_blank"
-            rel="noopener"
-          >
-            Enjoy
-          </Link>
-          ,&nbsp;
-          <Link
-            theme={theme}
-            href="https://about.facebook.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            Meta (formerly Facebook)
-          </Link>
-          , and&nbsp;
-          <Link
-            theme={theme}
-            href="https://www.uber.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            Uber.
-          </Link>
-        </Description>
-      </DescriptionContainer>
+      <Wrapper>
+        <ProfilePhoto theme={theme} src={`/JakeGreyBkBridge.png`} />
+        <DescriptionContainer>
+          <Heading children={undefined}></Heading>
+          <Description>
+            I am a fullstack Associate Software Engineer at&nbsp;
+            <Link
+              theme={theme}
+              href="https://amplify.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Amplify
+            </Link>
+            &nbsp;and I live in NY. I've worked in Information Technology for many
+            years in a variety of roles such as Help Desk Technician, Project
+            Coordinator, Program manager, and now Software Engineer. I've worked
+            for companies such as&nbsp;
+            <Link
+              theme={theme}
+              href="https://www.apple.com"
+              target="_blank"
+              rel="noopener"
+            >
+              Apple
+            </Link>
+            ,&nbsp;
+            <Link
+              theme={theme}
+              href="https://www.enjoy.com"
+              target="_blank"
+              rel="noopener"
+            >
+              Enjoy
+            </Link>
+            ,&nbsp;
+            <Link
+              theme={theme}
+              href="https://about.facebook.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Meta (formerly Facebook)
+            </Link>
+            , and&nbsp;
+            <Link
+              theme={theme}
+              href="https://www.uber.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Uber.
+            </Link>
+          </Description>
+        </DescriptionContainer>
+      </Wrapper>
     </Content>
   );
 };
@@ -70,11 +71,16 @@ const Home: NextPage = () => {
 const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 8% 0 0 3%;
-  width: 60%;
+  text-align: center;
+  flex: 1;
+  margin-left: 2rem; // for row layout spacing
+  @media screen and (max-width: 600px) {
+    margin: 2rem auto 0 auto;
+    width: 100%;
+  }
 `;
 
-const Link = styled.a(
+const Link = styled.a<{ children?: React.ReactNode; href: string; target?: string; rel?: string }>(
   ({ theme }) => `
   color: ${theme.link.primary};
   text-decoration: none;
@@ -83,24 +89,34 @@ const Link = styled.a(
   }
 `
 );
+
 const Content = styled.div`
   display: flex;
+  min-height: 100vh; // ensures full viewport height for vertical centering
+  justify-content: center; // center horizontally in desktop
+  align-items: center;     // center vertically in desktop
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 90%;
+  max-width: 800px;
+  align-items: center;
   @media screen and (max-width: 600px) {
-    display: flex;
     flex-direction: column;
-    align-items: center;
   }
 `;
 
-const ProfilePhoto = styled.img(
+const ProfilePhoto = styled.img<{ src: string }>(
   ({ theme }) => `
-  margin: 6% 0px 0px 110px;
+  margin: 6% auto 0 auto;
   border: 2px solid ${theme.link.primary};
   width: 110px;
   height: 110px;
   border-radius: 50%;
   @media screen and (max-width: 600px) {
-    margin: 0 auto;
+    margin: 5% auto 0 auto;
+    // Removed width/height scaling so image height stays constant
   }
 `
 );

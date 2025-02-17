@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import { IToggle } from "../../types/AppTypes";
 
 type ButtonType = {
   hidden?: boolean;
@@ -36,8 +35,8 @@ const Button: React.FunctionComponent<ButtonType> = ({
   );
 };
 
-const ButtonStyle = styled.button(
-  ({ theme }) => `
+const ButtonStyle = styled.button<{ hidden?: boolean; disabled?: boolean; children: React.ReactNode; onClick: (e: any) => void }>(
+  ({ theme, hidden }) => `
   color: ${theme.text.primary};
   width: 125px;
   padding: 0;
@@ -45,7 +44,7 @@ const ButtonStyle = styled.button(
   background: none;
   cursor: pointer;
   font-size: 14px;
-  display: ${(props: any) => (props.hidden ? "none" : " flex")};
+  display: ${hidden ? "none" : "flex"};
   align-items:center;
   padding: 1%;
 `

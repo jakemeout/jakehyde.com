@@ -10,7 +10,7 @@ const Footer: React.FunctionComponent<FooterProps> = ({ children }) => {
   return <FooterText theme={theme}>{children}</FooterText>;
 };
 
-const FooterText = styled.h6(
+const FooterText = styled.h6<{ children: React.ReactNode }>(
   ({ theme }) => `
   color: ${theme.text.primary};
   font-weight: 200;
