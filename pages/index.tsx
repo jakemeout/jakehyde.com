@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         <DescriptionContainer>
           <Heading children={undefined}></Heading>
           <Description>
-            I am a fullstack Associate Software Engineer at&nbsp;
+            I am a fullstack Senior Software Engineer at&nbsp;
             <Link
               theme={theme}
               href="https://amplify.com/"
