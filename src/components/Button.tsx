@@ -35,7 +35,12 @@ const Button: React.FunctionComponent<ButtonType> = ({
   );
 };
 
-const ButtonStyle = styled.button<{ hidden?: boolean; disabled?: boolean; children: React.ReactNode; onClick: (e: any) => void }>(
+const ButtonStyle = styled.button<{
+  hidden?: boolean;
+  disabled?: boolean;
+  children: React.ReactNode;
+  onClick: (e: any) => void;
+}>(
   ({ theme, hidden }) => `
   color: ${theme.text.primary};
   width: 125px;
@@ -47,7 +52,7 @@ const ButtonStyle = styled.button<{ hidden?: boolean; disabled?: boolean; childr
   display: ${hidden ? "none" : "flex"};
   align-items:center;
   padding: 1%;
-`
+`,
 );
 
 export default Button;

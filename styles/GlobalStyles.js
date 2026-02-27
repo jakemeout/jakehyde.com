@@ -14,7 +14,7 @@ html, body {
     background-color: ${theme.theme.bg.primary};
   }
 
-`
+`,
 );
 
 export default GlobalStyle;

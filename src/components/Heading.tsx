@@ -52,7 +52,7 @@ const HeaderText = styled.h2(
   @media screen and (max-width: 600px) {
     font-size: 16px;
   }
-`
+`,
 );
 
 export default Heading;

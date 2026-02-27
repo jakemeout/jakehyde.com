@@ -14,7 +14,7 @@ const FooterText = styled.h6<{ children: React.ReactNode }>(
   ({ theme }) => `
   color: ${theme.text.primary};
   font-weight: 200;
-`
+`,
 );
 
 export default Footer;

@@ -28,27 +28,33 @@ const Switch: React.FunctionComponent<IToggle> = ({ toggleTheme }) => {
 };
 
 const SwitchContainer = styled.div``;
-const Toggle = styled.div.attrs((props: { onClick: () => void; children: React.ReactNode }) => ({
-  onClick: props.onClick,
-  children: props.children,
-}))`
+const Toggle = styled.div.attrs(
+  (props: { onClick: () => void; children: React.ReactNode }) => ({
+    onClick: props.onClick,
+    children: props.children,
+  }),
+)`
   display: flex;
   flex-direction: row;
   justify-content: center;
   cursor: pointer;
 `;
-const DarkSun = styled.img.attrs((props: { src: string; alt: string; width?: number; height?: number }) => ({
-  src: props.src,
-  alt: props.alt,
-  width: props.width,
-  height: props.height,
-}))``;
+const DarkSun = styled.img.attrs(
+  (props: { src: string; alt: string; width?: number; height?: number }) => ({
+    src: props.src,
+    alt: props.alt,
+    width: props.width,
+    height: props.height,
+  }),
+)``;
 
-const LightMoon = styled.img.attrs((props: { src: string; alt: string; width?: number; height?: number }) => ({
-  src: props.src,
-  alt: props.alt,
-  width: props.width,
-  height: props.height,
-}))``;
+const LightMoon = styled.img.attrs(
+  (props: { src: string; alt: string; width?: number; height?: number }) => ({
+    src: props.src,
+    alt: props.alt,
+    width: props.width,
+    height: props.height,
+  }),
+)``;
 
 export default Switch;

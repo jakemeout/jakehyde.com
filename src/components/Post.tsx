@@ -26,19 +26,19 @@ const Post: React.FunctionComponent<PostProps> = ({ post }) => {
   );
 };
 const PostHeader = styled.div(
-  ({ }) => `
+  ({}) => `
   display:flex;
   justify-content: space-between;
   margin: 1%;
   font-weight: 500;
-`
+`,
 );
 
 const PostBody = styled.div(
-  ({ }) => `
+  ({}) => `
   margin: 1%;
   padding: 3%;
-`
+`,
 );
 
 const PostContainer = styled.div(
@@ -61,7 +61,7 @@ const PostContainer = styled.div(
   -webkit-backdrop-filter: blur( 7.5px );
   box-shadow: 0 1px 10px 0 rgba( 0, 0, 0, 0.07 );
   z-index: 4;
-`
+`,
 );
 
 export default Post;

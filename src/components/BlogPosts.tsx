@@ -24,9 +24,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
 
   return (
     <BlogPageLayout>
-      <BlogPostsContainer>
-        {renderPage(pageNum)}
-      </BlogPostsContainer>
+      <BlogPostsContainer>{renderPage(pageNum)}</BlogPostsContainer>
       <FooterNavigation pageNum={pageNum}>
         <Button
           identifier={"back"}
@@ -52,7 +50,7 @@ const BlogPosts: React.FunctionComponent<Posts> = ({ posts }) => {
 const BlogPageLayout = styled.div(
   ({}) => `
   width: 100%;
-`
+`,
 );
 
 const FooterNavigation = styled.div<PageNumPropType>(
@@ -62,7 +60,7 @@ const FooterNavigation = styled.div<PageNumPropType>(
   justify-content: ${pageNum === 0 ? "flex-end" : "space-between"};
   padding-left: 10%;
   padding-right: 10%;
-`
+`,
 );
 
 const BlogPostsContainer = styled.div`

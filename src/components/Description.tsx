@@ -22,7 +22,7 @@ const DescriptionText = styled.p<{ theme: any; children: React.ReactNode }>(
     margin-top: 2%;
     font-size: 14px;
   }
-`
+`,
 );
 
 export default Description;

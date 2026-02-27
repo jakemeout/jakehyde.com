@@ -47,9 +47,9 @@ const FooterContainer = styled.div`
   text-align: center;
 `;
 const LayoutStyle = styled.div(
-  ({ }) => `
+  ({}) => `
 
-`
+`,
 );
 
 export default Layout;

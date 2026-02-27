@@ -22,10 +22,10 @@ const Home: NextPage = () => {
             >
               Amplify
             </Link>
-            &nbsp;and I live in NY. I've worked in Information Technology for many
-            years in a variety of roles such as Help Desk Technician, Project
-            Coordinator, Program manager, and now Software Engineer. I've worked
-            for companies such as&nbsp;
+            &nbsp;and I live in NY. I've worked in Information Technology for
+            many years in a variety of roles such as Help Desk Technician,
+            Project Coordinator, Program manager, and now Software Engineer.
+            I've worked for companies such as&nbsp;
             <Link
               theme={theme}
               href="https://www.apple.com"
@@ -80,21 +80,26 @@ const DescriptionContainer = styled.div`
   }
 `;
 
-const Link = styled.a<{ children?: React.ReactNode; href: string; target?: string; rel?: string }>(
+const Link = styled.a<{
+  children?: React.ReactNode;
+  href: string;
+  target?: string;
+  rel?: string;
+}>(
   ({ theme }) => `
   color: ${theme.link.primary};
   text-decoration: none;
   :hover {
     text-shadow: 0 0 6px ${theme.text.primary};
   }
-`
+`,
 );
 
 const Content = styled.div`
   display: flex;
   min-height: 100vh; // ensures full viewport height for vertical centering
   justify-content: center; // center horizontally in desktop
-  align-items: center;     // center vertically in desktop
+  align-items: center; // center vertically in desktop
 `;
 
 const Wrapper = styled.div`
@@ -118,7 +123,7 @@ const ProfilePhoto = styled.img<{ src: string }>(
     margin: 5% auto 0 auto;
     // Removed width/height scaling so image height stays constant
   }
-`
+`,
 );
 
 export default Home;
